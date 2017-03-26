@@ -1,6 +1,9 @@
 # GodotIRC
 IRC client on Godot engine
+
 var. 0.0.12 
+
+![prev](preview.png)
 
 Features:
 * Connect to irc servers
