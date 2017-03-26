@@ -1,7 +1,7 @@
 # GodotIRC
 IRC client on Godot engine
 
-var. 0.0.12 
+var. 0.0.14
 
 ![prev](preview.png)
 
@@ -11,6 +11,7 @@ Features:
 * Display the JOIN, QUIT, PART, NOTICE, PRIVMSG
 * Auto answer on PING
 * Ready for code enhancements and changes.
+* Russian language support
 
 Plans:
 * Add support for BB-code (Color, bold/italic text).
@@ -19,4 +20,3 @@ Plans:
 * Sounds for comfortable tracking of events.
 * Support for multiple channels simultaneously.
 * Plugin for Godot engine (GodotIRC Plugin)
-* Russian language support
