@@ -19,3 +19,4 @@ Plans:
 * Sounds for comfortable tracking of events.
 * Support for multiple channels simultaneously.
 * Plugin for Godot engine (GodotIRC Plugin)
+* Russian language support
