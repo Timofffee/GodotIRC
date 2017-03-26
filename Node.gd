@@ -3,30 +3,30 @@ extends Node
 
 var ip = "weber.freenode.net"
 var client
-var nick = "Gloomer"
-var channel = "#godotengine_ru"
+var nick = "GodotIRC"
+var channel = "#godotengine"
 var password = ""
 
 func _ready():
 	client = StreamPeerTCP.new()
 	client.connect(ip, 6667)
 	if password != "":
-		client.put_data(("JOIN "+ password +"\n").to_ascii())
-	client.put_data(("USER "+ nick +" "+ nick +" "+ nick +" :TEST\n").to_ascii())
-	client.put_data(("NICK "+ nick +"\n").to_ascii())
-	client.put_data(("JOIN "+ channel +"\n").to_ascii())
+		client.put_data(("JOIN "+ password +"\n").to_utf8())
+	client.put_data(("USER "+ nick +" "+ nick +" "+ nick +" :TEST\n").to_utf8())
+	client.put_data(("NICK "+ nick +"\n").to_utf8())
+	client.put_data(("JOIN "+ channel +"\n").to_utf8())
 	set_fixed_process(true)
 
 func _fixed_process(delta):
 	if client.is_connected() && client.get_available_bytes() >0:
 		var time = str(OS.get_time().hour) + ":" + str(OS.get_time().minute) + ":" + str(OS.get_time().second)
-		var a = str(client.get_string(client.get_available_bytes()))
+		var a = str(client.get_utf8_string(client.get_available_bytes()))
 		a = a.split('\n')
 		for b in a:
 			b = b.split(' ')
 			if b.size() > 1:
 				if b[0] == "PING":
-					client.put_data(("PONG "+ str(b[1]) +"\n").to_ascii())
+					client.put_data(("PONG "+ str(b[1]) +"\n").to_utf8())
 				elif b[1] == "NOTICE":
 					var text = ""
 					for i in range (4, b.size()):
@@ -55,7 +55,7 @@ func get_name_user (value):
 func _on_enterLine_text_entered( text ):
 	var time = str(OS.get_time().hour) + ":" + str(OS.get_time().minute) + ":" + str(OS.get_time().second)
 	get_node("text").append_bbcode("[" + time + "] <" + nick + "> " + str(text) + "\n")
-	client.put_data(("PRIVMSG "+ channel + " :" + str(text) +"\n").to_ascii())
+	client.put_data(("PRIVMSG "+ channel + " :" + str(text) +"\n").to_utf8())
 	get_node("enterLine").clear()
 
 func _on_Button_pressed():
