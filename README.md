@@ -1,7 +1,7 @@
 # GodotIRC
 IRC client on Godot engine
 
-var. 0.0.17
+ver. 0.0.17
 
 ![prev](preview.png)
 
