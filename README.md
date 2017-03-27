@@ -3,6 +3,8 @@ IRC client on Godot engine
 
 ver. 0.0.17
 
+Patreon: https://www.patreon.com/timofffee
+
 ![prev](preview.png)
 
 Features:
