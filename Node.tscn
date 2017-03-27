@@ -36,7 +36,7 @@ margin/left = 15.0
 margin/top = 38.0
 margin/right = 22.0
 margin/bottom = 68.0
-bbcode/enabled = false
+bbcode/enabled = true
 bbcode/bbcode = ""
 visible_characters = -1
 
@@ -83,8 +83,17 @@ shortcut = null
 text = "SEND"
 flat = false
 
+[node name="time_updater" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
 [connection signal="text_entered" from="enterLine" to="." method="_on_enterLine_text_entered"]
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+[connection signal="timeout" from="time_updater" to="." method="_on_time_updater_timeout"]
 
 
